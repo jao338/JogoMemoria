@@ -14,20 +14,25 @@ function pushImage() {
 
 function pushImages() {
 
-    let i = 0;
+    if(document.querySelector('.square').innerHTML === ''){
 
-    grid.querySelectorAll('.square').forEach((item) => {
-         
-        i++;
+        let i = 0;
 
-        let img = document.createElement('img')
-        img.setAttribute('src', `img/${i}.jpg`)
+        grid.querySelectorAll('.square').forEach((item) => {
+            
+            i++;
 
-        item.append(img)
+            let img = document.createElement('img')
+            img.setAttribute('src', `img/${i}.jpg`)
 
-        
-    });
+            item.append(img)
 
+            
+        });
+
+    }else{
+
+    }
     
 }
 
