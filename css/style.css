@@ -12,11 +12,13 @@ main{
 }
 
 .grid{
+    height: 736px;
     display: flex;
     flex-direction: column;
 }
 
 .square{
+    border-radius: 8px;
     margin: 20px;
     width: 120px;
     height: 120px;
@@ -37,14 +39,22 @@ main{
 }
 
 .btn-init{
+    background-color: rgb(64, 185, 64);
+    border: 1px solid #a5a5a5;
+    border-radius: 32px;
+    color: white;
     width: 240px;
-    height: 32px;
+    height: 40px;
 }
 
 .btn-reset{
+    background-color: rgb(189, 56, 56);
+    border: 1px solid #a5a5a5;
+    border-radius: 32px;
+    color: white;
     margin-top: 16px;
     width: 120px;
-    height: 24px;
+    height: 32px;
 }
 
 img{
