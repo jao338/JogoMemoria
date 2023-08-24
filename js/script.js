@@ -1,4 +1,9 @@
 let grid = document.querySelector('.grid');
+let spanPlayer = document.querySelector('.player');
+let btn_init = document.querySelector('.btn-init');
+let btn_reset = document.querySelector('.btn-reset');
+let block = false;
+
 
 let firstCard = "";
 let secondCard = "";
@@ -99,6 +104,7 @@ const createElement = (tag, className) => {
 
 const loadGame = () => {
 
+
     const newNumbers = [...numbers, ...numbers]
     const shuffledArray = newNumbers.sort(() => Math.random() - 0.5);
 
@@ -109,6 +115,7 @@ const loadGame = () => {
         grid.appendChild(card);
 
     });
+    
 
 }
 
@@ -121,4 +128,18 @@ const checkEndGame = () => {
 
 };
 
-loadGame();
+window.onload = () => {
+    
+    loadGame();
+
+}
+
+function init(){
+
+   block = true;
+
+}
+
+
+btn_init.addEventListener('click', init);
+//Wbtn_reset.addEventListener('click', reset);
