@@ -1,4 +1,8 @@
 let grid = document.querySelector('.grid');
+
+let firstCard = "";
+let secondCard = "";
+
 let numbers = [
     '1',
     '2',
@@ -21,7 +25,11 @@ const createCard = (number) => {
     card.appendChild(front);
     card.appendChild(back);
 
-    card.addEventListener('click', showCard)
+    card.style.cursor = 'pointer'
+
+    card.addEventListener('click', showCard);
+
+    card.setAttribute('data-num', number)
 
     return card;
 
@@ -29,9 +37,54 @@ const createCard = (number) => {
 
 const showCard = ({target}) => {
 
-    target.parentNode.classList.add('show-card')
+    if(target.parentNode.className.includes('show-card')){
+        return;
+    }
 
+    if(firstCard === ""){
+
+        target.parentNode.classList.add('show-card')
+        firstCard = target.parentNode;
+
+    }else if(secondCard === ""){
+        target.parentNode.classList.add('show-card');
+        secondCard = target.parentNode;
+
+        checkCards();
+    }
+
+    
 };
+
+const checkCards = () => {
+    
+
+    const firstNum = firstCard.getAttribute('data-num');
+    const secondNum = secondCard.getAttribute('data-num');
+
+    if(firstNum == secondNum){
+
+        firstCard.classList.add('disabled-card')
+        secondCard.classList.add('disabled-card')
+
+        firstCard = '';
+        secondCard = '';
+
+        checkEndGame();
+
+    }else{
+
+        setTimeout(() => {
+            firstCard.classList.remove('show-card')
+            secondCard.classList.remove('show-card')
+
+            firstCard = '';
+            secondCard = '';
+        }, 500)
+
+    }
+
+}
 
 
 const createElement = (tag, className) => {
@@ -58,5 +111,14 @@ const loadGame = () => {
     });
 
 }
+
+const checkEndGame = () => {
+    const disableCards = document.querySelectorAll('.disabled-card');
+
+    if(disableCards.length === 16){
+        alert('Fim')
+    }
+
+};
 
 loadGame();

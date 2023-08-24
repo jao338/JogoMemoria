@@ -5,6 +5,7 @@
 
 
 .btns{
+    margin-top: 16px;
     height: 72px;
     display: flex;
     align-items: center;
@@ -23,7 +24,6 @@
 .card{
     width: 100%;
     aspect-ratio: 3/4;
-    background-color: #333;
     border-radius: 8px;
     position: relative;
     transition: all 400ms ease;
@@ -79,7 +79,17 @@
 }
 .back{
     
-    background-image: url('../img/2.jpg');
+    background-image: url('../img/back.png');
     backface-visibility: hidden;
 
+}
+
+.disabled-card{
+    filter: saturate(0);
+    opacity: .8;
+}
+
+article{
+    display: flex;
+    border: 1px solid black;
 }
