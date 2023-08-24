@@ -3,39 +3,35 @@
     padding: 0;
 }
 
-main{
-    width: 100vw;
-    height: 100vh;
+
+.btns{
+    height: 72px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .grid{
-    height: 736px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(4, 120px);
+    gap:10px;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
 }
 
-.square{
+.card{
+    width: 100%;
+    aspect-ratio: 3/4;
+    background-color: #333;
     border-radius: 8px;
-    margin: 20px;
-    width: 120px;
-    height: 120px;
-    border: 1px solid #212121;
+    position: relative;
+    transition: all 400ms ease;
+    transform-style: preserve-3d;
 }
 
-.linha{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    
-}
-
-.linha:last-child{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.show-card{
+    transform: rotateY(180deg);
 }
 
 .btn-init{
@@ -69,8 +65,21 @@ main{
     box-shadow: inset -2px 2px 0 #212121
 }
 
-img{
-    width: 120px;
-    height: 120px;
+
+.face{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: cover;
+    background-position: center;
 }
 
+.front{
+    transform: rotateY(180deg);
+}
+.back{
+    
+    background-image: url('../img/2.jpg');
+    backface-visibility: hidden;
+
+}

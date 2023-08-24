@@ -1,46 +1,62 @@
-let btn_init = document.querySelector('.btn-init');
-let btn_reset = document.querySelector('.btn-reset');
 let grid = document.querySelector('.grid');
+let numbers = [
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8'
+]
 
-btn_init.addEventListener('click', pushImages);
-btn_reset.addEventListener('click', resetImages);
+const createCard = (number) => {
 
+    const card = createElement('div', 'card');
+    const front = createElement('div', 'face front');
+    const back = createElement('div', 'face back');
 
-function pushImage() {
+    front.style.backgroundImage = `url(img/${number}.jpg)`
 
-    grid.querySelector('.linha .square').innerHTML = `<img src="img/1.jpg" class="img" alt="">`
+    card.appendChild(front);
+    card.appendChild(back);
+
+    card.addEventListener('click', showCard)
+
+    return card;
 
 }
 
-function pushImages() {
+const showCard = ({target}) => {
 
-    if(document.querySelector('.square').innerHTML === ''){
+    target.parentNode.classList.add('show-card')
 
-        let i = 0;
+};
 
-        grid.querySelectorAll('.square').forEach((item) => {
-            
-            i++;
 
-            let img = document.createElement('img')
-            img.setAttribute('src', `img/${i}.jpg`)
+const createElement = (tag, className) => {
 
-            item.append(img)
+    const element = document.createElement(tag);
 
-            
-        });
+    element.className = className;
 
-    }else{
+    return element;
 
-    }
-    
 }
 
-function resetImages() {
+const loadGame = () => {
 
-    grid.querySelectorAll('.square').forEach((item) => {
-        
-        item.innerHTML = ''
-        
+    const newNumbers = [...numbers, ...numbers]
+    const shuffledArray = newNumbers.sort(() => Math.random() - 0.5);
+
+    shuffledArray.forEach((number) => {
+
+        const card = createCard(number);
+
+        grid.appendChild(card);
+
     });
+
 }
+
+loadGame();
