@@ -1,6 +1,5 @@
 let grid = document.querySelector('.grid');
 let spanPlayer = document.querySelector('.player');
-let btn_init = document.querySelector('.btn-init');
 let btn_reset = document.querySelector('.btn-reset');
 let block = false;
 
@@ -40,34 +39,36 @@ const createCard = (number) => {
 
 }
 
-const showCard = ({target}) => {
+const showCard = ({ target }) => {
 
-    if(target.parentNode.className.includes('show-card')){
+    if (target.parentNode.className.includes('show-card')) {
         return;
     }
 
-    if(firstCard === ""){
+    if (firstCard === "") {
 
         target.parentNode.classList.add('show-card')
         firstCard = target.parentNode;
 
-    }else if(secondCard === ""){
+    } else if (secondCard === "") {
         target.parentNode.classList.add('show-card');
         secondCard = target.parentNode;
 
         checkCards();
+
+
     }
 
-    
+
 };
 
 const checkCards = () => {
-    
+
 
     const firstNum = firstCard.getAttribute('data-num');
     const secondNum = secondCard.getAttribute('data-num');
 
-    if(firstNum == secondNum){
+    if (firstNum == secondNum) {
 
         firstCard.classList.add('disabled-card')
         secondCard.classList.add('disabled-card')
@@ -77,7 +78,7 @@ const checkCards = () => {
 
         checkEndGame();
 
-    }else{
+    } else {
 
         setTimeout(() => {
             firstCard.classList.remove('show-card')
@@ -115,31 +116,31 @@ const loadGame = () => {
         grid.appendChild(card);
 
     });
-    
+
 
 }
 
 const checkEndGame = () => {
     const disableCards = document.querySelectorAll('.disabled-card');
 
-    if(disableCards.length === 16){
-        alert('Fim')
+    if (disableCards.length === 16) {
+        reset();
     }
 
 };
 
 window.onload = () => {
-    
+
     loadGame();
 
 }
 
-function init(){
+function reset() {
 
-   block = true;
+    document.querySelector('.grid').innerHTML = '';
+
+    loadGame();
 
 }
 
-
-btn_init.addEventListener('click', init);
-//Wbtn_reset.addEventListener('click', reset);
+btn_reset.addEventListener('click', reset);

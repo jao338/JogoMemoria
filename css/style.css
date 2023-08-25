@@ -1,10 +1,10 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
 
-.btns{
+.btns {
     margin-top: 16px;
     height: 72px;
     display: flex;
@@ -12,16 +12,16 @@
     flex-direction: column;
 }
 
-.grid{
+.grid {
     display: grid;
     grid-template-columns: repeat(4, 120px);
-    gap:10px;
+    gap: 10px;
     width: 100%;
     max-width: 480px;
     margin: 12px auto;
 }
 
-.card{
+.card {
     width: 100%;
     aspect-ratio: 3/4;
     border-radius: 8px;
@@ -30,26 +30,15 @@
     transform-style: preserve-3d;
 }
 
-.show-card{
+.show-card {
     transform: rotateY(180deg);
 }
 
-.btn-init{
-    background-color: rgb(64, 185, 64);
-    border: 1px solid black;
-    border-radius: 32px;
-    color: white;
-    width: 240px;
-    height: 40px;
-    box-shadow: 0px 1px 0 #212121, 0px 2px 0 #212121;
-    cursor: pointer;
-}
-
-.btn-init:active{
+.btn-init:active {
     box-shadow: inset -2px 2px 0 #212121
 }
 
-.btn-reset{
+.btn-reset {
     background-color: rgb(189, 56, 56);
     border: 1px solid black;
     border-radius: 32px;
@@ -61,12 +50,12 @@
     box-shadow: 0px 1px 0 #212121, 0px 2px 0 #212121;
 }
 
-.btn-reset:active{
+.btn-reset:active {
     box-shadow: inset -2px 2px 0 #212121
 }
 
 
-.face{
+.face {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -74,15 +63,16 @@
     background-position: center;
 }
 
-.front{
+.front {
     transform: rotateY(180deg);
 }
-.back{
+
+.back {
     background-image: url('../img/back.png');
     backface-visibility: hidden;
 }
 
-.disabled-card{
+.disabled-card {
     filter: saturate(0);
     opacity: .8;
 }
